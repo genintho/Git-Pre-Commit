@@ -26,6 +26,14 @@ do
     # extract file extension
     filename=$(basename "$File")
     FileExtension=${filename##*.}
+    FileStatus=$(git status | grep "$File" | awk '{print $2 }' | sed 's/://' )
+
+    if [ $FileStatus = "deleted" ]
+    then
+        echo -n "$(tput bold)$(tput setaf 2)[DELT]$(tput sgr0)"
+        echo " $File"
+        continue;
+    fi
 
     case $FileExtension in
         "php")
@@ -84,3 +92,4 @@ else
     echo "$(tput bold)$(tput setaf 1)COMMIT INVALID$(tput sgr0) SUCKA! CHECK LOG TO SEE WHERE YOU FAILED"
     exit 1
 fi
+
