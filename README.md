@@ -9,9 +9,6 @@ that your code doesn't contain stupid syntax error before you commit them in you
 
 Installation
 ==============
-
-Download pre-commit.sh
-Move it into the /.git/hooks/ directory
-Edit the file and update the path to the Google Closure compiler JAR line 3.
-Make sure git can execute the script ( chmod a+x )
-Enjoy
+````
+curl -L ihttps://github.com/genintho/Git-Pre-Commit/raw/master/setup.sh | sh
+````
