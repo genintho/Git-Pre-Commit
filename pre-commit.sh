@@ -1,12 +1,11 @@
 #!/bin/sh
-
 GOOGLE_CLOSURE_PATH='/svn/staging/jsCompiler.jar'
 
 echo "$(tput bold)SUMMARY$(tput sgr0)"
-git diff --cached --name-status
+git diff --cached --name-status | cat 
 echo ''
 echo "$(tput bold)STAT$(tput sgr0)"
-git diff --cached --stat
+git diff --cached --stat | cat
 echo ''
 
 CanCommit=1
