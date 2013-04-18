@@ -1,10 +1,12 @@
 #!/bin/sh
+
 GOOGLE_CLOSURE_PATH='/svn/staging/jsCompiler.jar'
 
 echo "$(tput bold)SUMMARY$(tput sgr0)"
 git diff --cached --name-status | cat 
+
 echo ''
-echo "$(tput bold)STAT$(tput sgr0)"
+echo "$(tput bold)STATS$(tput sgr0)"
 git diff --cached --stat | cat
 echo ''
 
@@ -28,7 +30,7 @@ do
     case $FileExtension in
         "php")
         # run basic PHP -l syntax checker
-            errorMsg=$(php -l $File)
+            errorMsg=$(php -l $File 2>&1)
             if [ ! $? = 0 ]
             then
                 error=1
@@ -44,8 +46,6 @@ do
             then
                 error=1
             fi
-
-
             ;;
     esac
 
@@ -59,7 +59,18 @@ do
     echo " $File"
     if [ $error = 1 ]
     then
-        echo "\t$(tput setaf 1)$errorMsg$(tput sgr0)"
+    	case $FileExtension in
+       	    "php")
+            	#echo "\t$(tput setaf 1)"
+		#echo $errorMsg | head -1
+		#echo "$(tput sgr0)"
+		errorMsgT=`echo $errorMsg | head -1`
+		echo "\t$(tput setaf 1)$errorMsgT$(tput sgr0)"
+  	    ;;
+            "js")
+		echo "\t$(tput setaf 1)$errorMsg$(tput sgr0)"
+            ;;
+    	esac
     fi
 done
 
