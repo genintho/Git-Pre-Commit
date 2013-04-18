@@ -10,5 +10,5 @@ that your code doesn't contain stupid syntax error before you commit them in you
 Installation
 ==============
 ````
-curl -L ihttps://github.com/genintho/Git-Pre-Commit/raw/master/setup.sh | sh
+curl -L https://github.com/genintho/Git-Pre-Commit/raw/master/setup.sh | sh
 ````
