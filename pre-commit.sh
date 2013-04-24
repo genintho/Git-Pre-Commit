@@ -22,7 +22,7 @@ for File in $FileModified
 do
     error=0
     errorMsg=''
-    
+
     # extract file extension
     filename=$(basename "$File")
     FileExtension=${filename##*.}
@@ -30,7 +30,7 @@ do
 
     if [ $FileStatus = "deleted" ]
     then
-        echo -n "$(tput bold)$(tput setaf 2)[DELT]$(tput sgr0)"
+        echo -n "$(tput bold)$(tput setaf 4)[DELT]$(tput sgr0)"
         echo " $File"
         continue;
     fi
