@@ -20,3 +20,5 @@ Patch are welcome
 
 - Ask where to install
 - Weekly check of update a la oh-my-zsh https://github.com/robbyrussell/oh-my-zsh/tree/master/tools
+
+.
